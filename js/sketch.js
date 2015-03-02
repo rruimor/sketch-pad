@@ -1,18 +1,45 @@
 $(document).ready(function(){
   initSketch();
 
-
 });
 
-function initSketch(){
-  for (var i = 0; i < 16; i++) {
-      $('.matrix').append('<div class="row" id="row-' + i + '"></div>');
-    for (var j = 0; j < 16; j++) {
-      $('.matrix #row-' + i ).append('<div class="square" id="' + j + '"></div>');
+function initSketch(grid_value){
+  grid_value = typeof grid_value !== 'undefined' ? grid_value : 16;
+
+  var html = ""
+  for (var i = 0; i < grid_value; i++) {
+      html += '<div class="row" id="row-' + i + '"></div>'
+    for (var j = 0; j < grid_value; j++) {
+      html += '<div class="square"></div>';
     }
   }
+
+  $('.matrix').append(html);
+
+  var max_width = 960;
+  var square_size = Math.floor(max_width / grid_value) - 2;
+
+  $('.square').css("width", square_size + "px");
+  $('.square').css("height", square_size + "px");
+
+  paintOnHover();
+
+  return false;
 }
 
-function resetSketch(){
-  
+function resetSketch() {
+  $('.square').removeClass("couloured");
+  $(".matrix").empty();
+  var grid_value = prompt("Enter the number of squares per row", "16");
+
+  initSketch(grid_value);
+
+  return false;
+}
+
+function paintOnHover() {
+  $(".square").hover( 
+    function() {
+    $(this).addClass("coloured");
+  });
 }
