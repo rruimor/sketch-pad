@@ -1,9 +1,23 @@
 $(document).ready(function(){
   initSketch();
 
+  $(this).keydown(function( event ) {
+    if ( event.which == 65 ) {
+      $('.status').addClass("active");
+    }
+  });
+
+  $(this).keyup(function( event ) {
+    if ( event.which == 65 ) {
+      $('.status').removeClass("active");
+    }
+  });
+
 });
 
 function initSketch(grid_value){
+  clearSketch();
+  $(".matrix").empty();
   grid_value = typeof grid_value !== 'undefined' ? grid_value : 16;
 
   var html = ""
@@ -28,18 +42,21 @@ function initSketch(grid_value){
 }
 
 function resetSketch() {
-  $('.square').removeClass("couloured");
-  $(".matrix").empty();
   var grid_value = prompt("Enter the number of squares per row", "16");
-
   initSketch(grid_value);
-
   return false;
 }
 
 function paintOnHover() {
   $(".square").hover( 
     function() {
-    $(this).addClass("coloured");
+    if($('.status').hasClass("active")) {
+      $(this).addClass("coloured");
+    }
   });
+}
+
+function clearSketch() {
+  $('.square').removeClass("coloured");
+  return false;
 }

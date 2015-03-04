@@ -6,11 +6,14 @@
   <link rel="stylesheet" type="text/css" href="css/sketch.css">
 </head>
 <body>
-  <div class="control">
-    <button id="reset-button" onclick="resetSketch(); return false">Reset</button>
+  <div class="text">
+    <h1>SKETCH-PAD</h1>
+    <div class="control">
+      <button class="btn" id="reset-button" onclick="resetSketch(); return false">Change Size</button>
+      <button class="btn" id="clear-button" onclick="clearSketch(); return false">Clear</button>
+    </div>
+    <p><strong>Instructions:</strong> Keep the key <strong>'a'</strong> pressed to paint - <strong>Status: </strong><span class="status"> </span></p>
   </div>
-  <div class="matrix center">
-
-  </div>
+  <div class="matrix center"></div>
 </body>
 </html>
