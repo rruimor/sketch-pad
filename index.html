@@ -2,14 +2,17 @@
 <head>
   <title>Sketch-Pad</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
   <script type="text/javascript" src="js/sketch.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/sketch.css">
+  <link rel="stylesheet" type="text/css" href="css/sketch.css" />
 </head>
 <body>
   <div class="text">
     <h1>SKETCH-PAD</h1>
     <div class="control">
-      <button class="btn" id="reset-button" onclick="resetSketch(); return false">Change Size</button>
+      <button class="btn" id="reset-button" onclick="resetSketch(); return false">Paint Mode</button>
+      <button class="btn" id="trail-button" onclick="resetSketch('trail'); return false">Trail Mode</button>
       <button class="btn" id="clear-button" onclick="clearSketch(); return false">Clear</button>
     </div>
     <p><strong>Instructions:</strong> Keep the key <strong>'a'</strong> pressed to paint - <strong>Status: </strong><span class="status"> </span></p>
