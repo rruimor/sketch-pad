@@ -75,22 +75,12 @@ function gradientOnHover() {
 
     var $status = $(' .status ');
     if($status.hasClass("active")) {
-      if($(this).hasClass("gradient")){
-        var colour = $(this).css('background-color');
-        var rgb_pattern = /rgb\(\d{1,3},\s?\d{1,3},\s?\d{1,3}\)/
-        if(rgb_pattern.test(colour)){
-          alert("RGB pattern!");
-        }
-        console.log("Colour: " + colour);
-        var index_of_opacity = colour.lastIndexOf(',') + 1;
-        var current_opacity = colour.slice(index_of_opacity, -1);
-        var new_opacity = parseFloat(current_opacity) + 0.1;
-        var new_colour = colour.substring(0,index_of_opacity) + ' ' + new_opacity + ')';
-        console.log("New Colour: " + new_colour);
-        $(this).css('background-color', new_colour);  
+      if($(this).hasClass("coloured")){
+        increaseOpacity($(this));
       }
       else {
-        $( this ).addClass("gradient"); 
+        $( this ).addClass("coloured");
+        $( this ).css({'background-color': 'rgba(0,0,0,0.1)'});
       }
     }
   });
@@ -98,6 +88,15 @@ function gradientOnHover() {
   $(' .square ').mouseleave( function() { 
     $(this).removeClass("highlight");
   }); 
+}
+
+function increaseOpacity(jquery) {
+  var colour = jquery.css('background-color');
+  var index_of_opacity = colour.lastIndexOf(',') + 1;
+  var current_opacity = colour.slice(index_of_opacity, -1);
+  var new_opacity = parseFloat(current_opacity) + 0.1;
+  var new_colour = colour.substring(0,index_of_opacity) + ' ' + new_opacity + ')';
+  jquery.css('background-color', new_colour);
 }
 
 function trailOnHover() {
@@ -113,4 +112,5 @@ function trailOnHover() {
 
 function clearSketch() {
   $('.square').removeClass("coloured");
+  $('.square').css({'background-color': '#FFF'})
 }

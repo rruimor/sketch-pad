@@ -46,17 +46,13 @@ p {
 }
 
 .square {
-  border: 1px solid #888;
+  border: 1px solid #AAA;
   display: inline-block;
   background-color: #fff;
 }
 
 .coloured {
   background-color: rgba(0,0,0,1);
-}
-
-.gradient {
-  background-color: rgba(0,0,0,0.1); 
 }
 
 .highlight {
