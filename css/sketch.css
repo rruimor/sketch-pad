@@ -46,12 +46,20 @@ p {
 }
 
 .square {
-  border: 1px solid #000;
+  border: 1px solid #AAA;
   display: inline-block;
   background-color: #fff;
 }
 
 .coloured {
+  background-color: rgba(0,0,0,1);
+}
+
+.highlight {
+  background-color: #AF0;
+}
+
+.trail {
   background-color: #000;
 }
 
