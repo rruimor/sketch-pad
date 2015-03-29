@@ -46,13 +46,21 @@ p {
 }
 
 .square {
-  border: 1px solid #000;
+  border: 1px solid #888;
   display: inline-block;
   background-color: #fff;
 }
 
 .coloured {
-  background-color: #000;
+  background-color: rgba(0,0,0,1);
+}
+
+.gradient {
+  background-color: rgba(0,0,0,0.1); 
+}
+
+.highlight {
+  background-color: #AF0;
 }
 
 .trail {
